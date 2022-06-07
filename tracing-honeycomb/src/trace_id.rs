@@ -90,7 +90,7 @@ impl From<String> for TraceId {
 impl From<Uuid> for TraceId {
     fn from(uuid: Uuid) -> Self {
         let buf = &mut [0; 36];
-        let id = uuid.to_simple().encode_lower(buf);
+        let id = uuid.simple().encode_lower(buf);
         Self(id.to_owned())
     }
 }
